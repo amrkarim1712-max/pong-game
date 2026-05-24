@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Flappy - Enhanced Edition</title>
+  <link rel="stylesheet" href="flappy-style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div id="app">
+    <canvas id="game"></canvas>
+
+    <!-- Start Screen with Difficulty Selection -->
+    <div id="screen-start" class="glass-panel">
+      <p class="label">choose difficulty</p>
+      <h1>FLAPPY</h1>
+      <div class="difficulty-selector">
+        <button class="difficulty-btn" data-difficulty="easy">
+          <span class="diff-name">EASY</span>
+          <span class="diff-desc">gentle & fun</span>
+        </button>
+        <button class="difficulty-btn active" data-difficulty="normal">
+          <span class="diff-name">NORMAL</span>
+          <span class="diff-desc">balanced</span>
+        </button>
+        <button class="difficulty-btn" data-difficulty="hard">
+          <span class="diff-name">HARD</span>
+          <span class="diff-desc">punishing</span>
+        </button>
+        <button class="difficulty-btn" data-difficulty="insane">
+          <span class="diff-name">INSANE</span>
+          <span class="diff-desc">impossible</span>
+        </button>
+      </div>
+      <p class="sub">tap to flap · survive the pipes</p>
+      <button id="btn-start" class="start-btn">▶ START</button>
+    </div>
+
+    <!-- HUD During Game -->
+    <div id="hud" class="hidden">
+      <div class="hud-top">
+        <div class="glass-pill" id="score-display">0</div>
+        <div class="power-ups-display" id="power-ups-display"></div>
+      </div>
+      <div class="hud-bottom">
+        <button id="btn-mute" class="mute-btn">♪</button>
+        <button id="btn-pause" class="pause-btn">⏸</button>
+      </div>
+    </div>
+
+    <!-- Pause Screen -->
+    <div id="screen-pause" class="glass-panel hidden">
+      <h2>PAUSED</h2>
+      <div class="stat-row">
+        <span class="stat-label">SCORE</span>
+        <span class="stat-val" id="pause-score">0</span>
+      </div>
+      <button id="btn-resume" class="resume-btn">▶ RESUME</button>
+      <button id="btn-quit" class="quit-btn">HOME</button>
+    </div>
+
+    <!-- Game Over Screen with Leaderboard -->
+    <div id="screen-gameover" class="glass-panel hidden">
+      <h2>GAME OVER</h2>
+      <div class="stat-row">
+        <span class="stat-label">SCORE</span>
+        <span class="stat-val" id="go-score">0</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">BEST</span>
+        <span class="stat-val" id="go-best">0</span>
+      </div>
+      
+      <!-- Leaderboard -->
+      <div class="leaderboard-panel">
+        <h3>TOP 5 SCORES</h3>
+        <div id="leaderboard" class="leaderboard">
+          <div class="lb-entry">
+            <span class="lb-rank">1.</span>
+            <span class="lb-score">--</span>
+          </div>
+          <div class="lb-entry">
+            <span class="lb-rank">2.</span>
+            <span class="lb-score">--</span>
+          </div>
+          <div class="lb-entry">
+            <span class="lb-rank">3.</span>
+            <span class="lb-score">--</span>
+          </div>
+          <div class="lb-entry">
+            <span class="lb-rank">4.</span>
+            <span class="lb-score">--</span>
+          </div>
+          <div class="lb-entry">
+            <span class="lb-rank">5.</span>
+            <span class="lb-score">--</span>
+          </div>
+        </div>
+      </div>
+
+      <button id="btn-restart">RETRY</button>
+      <button id="btn-home">HOME</button>
+    </div>
+
+    <!-- Active Power-ups Indicator (In-game) -->
+    <div id="active-powerups" class="hidden">
+      <div class="powerup-indicator" id="shield-indicator" title="Shield Active">🛡</div>
+      <div class="powerup-indicator" id="slowmo-indicator" title="Slow Motion Active">⏱</div>
+      <div class="powerup-indicator" id="magnet-indicator" title="Score Magnet Active">🧲</div>
+    </div>
+  </div>
+
+  <script src="flappy-script.js"></script>
+</body>
+</html>
